@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
 <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <!-- <body ng-app="myApp"> -->
@@ -127,7 +128,6 @@
 		border-color:red;
 	}
 </style>
-<body>
 <!-- <form ng-app="" name="myForm" ng-init="myText = 'test@king.com'">
 	Email:
 	<input type="email" name="myAddress" ng-model="myText" required>
@@ -185,7 +185,7 @@ app.controller('myCtrl',function($scope,$rootScope){
 		$scope.lastName = "Doe";
 	})
 </script> -->
-
+<!-- 
 <div ng-app="myApp" ng-controller="personCtrl">
 	名：<input type="text" ng-model="firstName"><br/>
 	姓：<input type="text" ng-model="lastName"><br/>
@@ -201,7 +201,1422 @@ app.controller('personCtrl',function($scope){
 		return $scope.firstName + " " +$scope.lastName;
 	}
 })
+</script> -->
+<!-- <div ng-controller="personCtrl">
+
+名: <input type="text" ng-model="firstName"><br>
+姓: <input type="text" ng-model="lastName"><br>
+<br>
+姓名: {{firstName + " " + lastName}}
+
+</div> -->
+
+<!-- <div ng-controller="namesCtrl">
+	<ul>
+		<li ng-repeat = "x in names">
+			{{x.name + ' ,' + x.country}}
+		</li>
+	</ul>
+</div> -->
+<!-- 
+<script src="../js/personController.js"></script> -->
+<!-- <script src="../js/namesController.js"></script> -->
+
+<!-- <div ng-app="myApp" ng-controller="personCtrl">
+	<p>姓名为{{lastName | uppercase}}</p>
+	<p>姓名为{{firstName | lowercase}}</p>
+</div>
+<script src="../js/personController.js"></script> -->
+
+<!-- <div ng-app ="myApp" ng-controller="costCtrl">
+	数量: <input type="number" ng-model="quantity">
+	价格：<input type="number" ng-model="price">
+	<p>总价={{ (quantity * price) | currency}}</p>
+</div>
+
+<script>
+var app=angular.module('myApp',[]);
+app.controller('costCtrl',function($scope){
+	$scope.quantity=1;
+	$scope.price=9.99;
+})
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="costCtrl">
+	数量：<input type="number" ng-model="quantity">
+	价格：<input type="number" ng-model="price">
+	<p>总价 = {{(quantity * price) | currency}}</p>
+</div>
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('costCtrl',function($scope){
+		$scope.quantity=1;
+		$scope.price=9.99;
+	})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="namesCtrl">
+	<p>循环对象：</p>
+	<ul>
+		<li ng-repeat="x in names | orderBy:'country'">
+			{{x.name + ',' + x.country}}
+			
+		</li>	
+	</ul>
+</div>
+<script type="text/javascript" src="../js/namesController.js"></script> -->
+<!-- <div ng-app="myApp" ng-controller="namesCtrl">
+	<p>循环对象:</p>
+	<ul>
+		<li ng-repeat="x in names | orderBy:'country'">
+			{{x.name + ',' +x.country}}
+		</li>
+	</ul>
+</div>
+<script src="../js/namesController.js"></script> -->
+
+<!-- <div ng-app="myApp" ng-controller="namesCtrl">
+	<p>输入过滤：</p>
+	<p><input type="text" ng-model="test"></p>
+	<ul>
+		<li ng-repeat="x in names | filter:test | orderBy:'country'">
+			{{(x.name | uppercase) + ',' + x.country}}
+		</li>
+	</ul>
+</div>
+<script src="../js/namesController.js"></script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>当前页面的url:</p>
+	<h3>{{myUrl}}</h3>
+</div>
+<p>该实例使用了内建的$location服务获取当前的页面的URL.</p>
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope,$location){
+		$scope.myUrl = $location.absUrl();
+	})
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>当前页面的url:</p>
+	<h3>{{myUrl}}</h3>
+</div>
+<p>使用了内建的$location服务获取当前页面的url</p>
+<script>
+	var app=angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope,$location){
+		$scope.myUrl=$location.absUrl();
+	})
+</script> -->
+<!-- 
+<div ng-app="myApp" ng-controller="myCtrl">
+	<p>当前的页面的url:</p>
+	<p>{{myUrl}}</p>
+</div>
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope,$location){
+		$scope.myUrl=$location.absUrl();
+	})
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl"> 
+
+<p>欢迎信息:</p>
+
+<h1>{{myWelcome}}</h1>
+
+</div>
+
+<p> $http 服务向服务器请求信息，返回的值放入变量 "myWelcome" 中。</p>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("test.htm").then(function (response) {
+      $scope.myWelcome = response.data;
+  });
+});
+</script> -->
+
+	<!-- <div ng-app="myApp" ng-controller="myCtrl">
+		<p>两秒后显示信息</p>
+		<h1>{{myHeader}}</h1>
+	</div>
+	<p>$timeout 访问在规定的毫秒数后执行指定函数。</p>
+	<script>
+		var app= angular.module('myApp',[]);
+		app.controller('myCtrl',function($scope,$timeout){
+			$scope.myHeader = "hello world!";
+			$timeout(function(){
+				$scope.myHeader = "How are you today";
+			},2000);
+		});
+	</script> -->
+
+<!-- 	<div ng-app="myApp" ng-controller="myCtrl">
+	<h1>{{theTime}}</h1>
+</div>
+<script>
+	var app=angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope,$interval){
+		$scope.theTime=new Date().toLocaleString();
+
+		$interval(function(){
+			$scope.theTime=new Date().toLocaleString();
+		},1000)
+	})
+</script>
+ -->
+
+ <!-- <div ng-app="myApp" ng-controller="myCtrl">
+ 
+ <p>255 的16进制是:</p>
+ 
+ <h1>{{hex}}</h1>
+ 
+ </div>
+ 
+ <p>自定义服务，用于转换16进制数：</p>
+ 
+ <script>
+ var app = angular.module('myApp', []);
+ 
+ app.service('hexafy', function() {
+ 	this.myFunc = function (x) {
+        return x.toString(16);
+    }
+ });
+ app.controller('myCtrl', function($scope, hexafy) {
+  $scope.hex = hexafy.myFunc(32);
+ });
+ </script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>32 的16进制是：</p>
+	<h1>{{hex}}</h1>
+</div>
+<script>
+	var app = angular.module('myApp',[]);
+	app.service('king',function(){
+		this.myFunc = function(x){
+			return x.toString(16);
+		}
+	});
+	app.controller('myCtrl',function($scope,king){
+		$scope.hex = king.myFunc(32);
+	})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>当前页面的url:</p>
+	<h3>{{myUrl}}</h3>
+</div>
+
+<script>
+
+var app = angular.module('myApp',[]);
+app.controller('myCtrl',function($scope,$location){
+	$scope.myUrl = $location.absUrl();
+})
+
 </script>
 
-</body>
-</html> 
+ -->
+
+<!-- <div ng-app="myApp" ng-controller="customersCtrl"> 
+
+<ul>
+  <li ng-repeat="x in names">
+    {{ x.Name + ', ' + x.Country }}
+  </li>
+</ul>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+  $http.get("json.php")
+  .success(function (response) {$scope.names = response.records;});
+});
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<select ng-model="selectedName" ng-options="x for x in names">
+		
+	</select>
+</div>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myCtrl',function($scope){
+	$scope.names = ["Google","Runoob","Taobao"];
+})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<select>
+		<option ng-repeat="x in names">{{x}}</option>
+	</select>
+</div>
+
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.names = ["Google","Runoob","taobao"];
+	})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>选择网站：</p>
+	<select ng-model="selectedSite">
+		<option ng-repeat="x in sites" value="{{x.url}}">
+			{{x.site}}
+		</option>
+	</select>
+	<h1>
+		你选择的是：{{selectedSite}}
+	</h1>
+</div>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myCtrl',function($scope){
+	$scope.sites = [
+		{site:"Google",url:"http://www.google.com"},
+		{site:"runoob",url:"http://www.runoob.com"},
+		{site:"taobao",url:"http://www.tabbao.com"}
+
+	];
+});
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>选择网站：</p>
+	<select ng-model="selectedSite">
+		<option ng-repeat="x in sites" value="{{x.url}}">
+			{{x.site}}
+		</option>
+	</select>
+	<h1>
+		你选择的是：{{selectedSite}}
+	</h1>
+</div>
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.sites = [
+			{site:"google",url:"http://www.google.com"},
+			{site:"runoob",url:"http://www.runoob.com"},
+			{site:"tabobo",url:"http://www.taoobb.com"}
+		];
+	});
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>选择网站：</p>
+	<select ng-model="selectedSite">
+		<option ng-repeat="x in sites" value = "{{x.url}}">
+			{{x.site}}
+		</option>
+	</select>
+	<h1>
+		你选择的是：{{selectedSite}}
+	</h1>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.sites = [
+			{site:"google",url:"http://www.google.com"},
+			{site:"runboob",url:"http://www.runbboo.com"},
+			{site:"tabobo",url:"http://www.taobbo.com"}
+		];
+	});
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>选择网站：</p>
+	<select ng-model="selectedSite">
+		<option ng-repeat="x in sites" value="{{x.url}}">
+			{{x.site}}
+		</option>
+	</select>
+	<h1>
+		你选择的是：{{selectedSite}}
+	</h1>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.sites = [
+			{site:"google",url:"http://www.google.com"},
+			{site:"runboob",url:"http://www.ruboob.com"},
+			{site:"tabobo",url:"http://www.taobbo.com"}
+		];
+	});
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>选择网站：</p>
+	<select ng-model="selectedSite">
+		<option ng-repeat="x in sites" value="{{x.url}}">
+			{{x.site}}
+		</option>
+	</select>
+	<h1>
+		你选择的是：{{selectedSite}}
+	</h1>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.sites = [
+			{site:"gogole",url:"http://www.gogle.com"},
+			{site:"runboob",url:"http://www.ruboob.com"},
+			{site:"tabobo",url:"http://www.taobao.com"}
+
+		];
+	});
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">	
+ 	<p>
+		选择的网站的是：
+	</p>
+	<select ng-model="selectedSite" ng-options="x for (x, y) in sites">
+	</select>
+</div>
+<h1>你选择的值是: {{selectedSite}}</h1>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+   $scope.sites = {
+	    site01 : "Google",
+	    site02 : "Runoob",
+	    site03 : "Taobao"
+	};
+});
+</script> -->
+
+<!--  <div ng-app="myApp" ng-controller="myCtrl">
+
+<p>选择的网站是:</p>
+
+<select ng-model="selectedSite" ng-options="x for (x, y) in sites">
+</select>
+
+<h1>你选择的值是: {{selectedSite}}</h1>
+
+</div>
+
+<p>该实例演示了使用对象作为创建下拉列表。</p>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+   $scope.sites = {
+	    site01 : "Google",
+	    site02 : "Runoob",
+	    site03 : "Taobao"
+	};
+});
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>选择的网站：</p>
+	<select ng-model="selectedSite" ng-options >
+		
+	</select>
+</div> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<select ng-model="selectedName" ng-options="x for x in names">
+	</select>
+</div>
+<script type="text/javascript">
+	var app= angular.module("myApp",[]);
+	app.controller('myCtrl',function($scope){
+		$scope.names = ["Google","Runboob","taobao"];
+	});
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<select>
+		<option ng-repeat="x in names">
+			{{x}}
+		</option>
+	</select>
+</div>
+
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.names = ["Google","Runboob","taobao"];
+	})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>选择网站：</p>
+	<select ng-model="selectedSite">
+		<option ng-repeat="x in sites" value="{{x.url}}">
+			{{x.site}}
+		</option>
+	</select>
+	<h1>你选择的是：{{selectedSite}}</h1>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.sites = [
+			{site:"Google",url:"http://www.google.com"},
+			{site:"Runoob",url:"http://www.runoob.com"},
+			{site:"taobao",url:"http://www.taobao.com"}
+		];
+	});
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>选择网站 ：</p>
+	<select ng-model="selectedSite">
+		<option ng-repeat="x in sites" value="{{x.url}}">
+			{{x.site}}
+		</option>
+	</select>
+	<h1>
+		你选择的是：{{selectedSite}}
+	</h1>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.sites = [
+			{site:"Google",url:"http://www.google.com"},
+			{site:"Runoob",url:"http://www.runoob.com"},
+			{site:"taobao",url:"http://www.taobao.com"}
+		];
+	});
+</script> -->
+<!-- <div ng-app = "myApp" ng-controller="myCtrl">
+	<p>选择网站：</p>
+	<select ng-model="selectedSite" ng-options="x.site for x in sites">
+	</select>
+	<h1>
+		你选择的是：{{selectedSite.site}}
+	</h1>
+	<p>网址为：{{selectedSite.url}}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.sites = [
+			{site:"google",url:"http://www.google.com"},
+			{site:"runboob",url:"http://www.runoob.com"},
+			{site:"taobao",url:"http://www.taobao.com"}
+		];
+	});
+</script> -->
+<!-- <div ng-app= "myApp" ng-controller="myCtrl">
+	<p>选择的网站是：</p>
+	<select ng-model="selectedSite" ng-options="x for (x,y) in sites"> 
+		
+	</select>
+	<h1>
+		你选择的值是：{{selectedSite}}
+	</h1>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.sites = {
+			site01:"google",
+			site02:"runboob",
+			site03:"taobao"
+		};
+	});
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>选择一辆车：</p>
+	<select ng-model="selectedCar" ng-options="x for (x,y) in cars">
+	</select>
+	<h1>你选择的是：{{selectedCar.brand}}</h1>
+	<h2>
+		模型：{{selectedCar.model}}
+	</h2>
+	<h3>
+		颜色：{{selectedCar.color}}
+	</h3>
+	<p>
+		注意选中的值是一个对象
+	</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.cars = {
+			car01 :{brand:"ford",model:"mustang",color:"red"},
+			car02 :{brand:"fiat",model:"500",color:"white"},
+			car03 :{brand:"volvo",model:"xc90",color:"black"}
+		}
+	});
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>选择一辆车：</p>
+	<select ng-model="selectedCar" ng-options="x for (x,y) in cars">
+	</select>
+	<h1>你选择的是：{{selectedCar.brand}}</h1>
+	<h2>模型：{{selectedCar.model}}</h2>
+	<h3>颜色：{{selectedCar.color}}</h3>
+	<p>注意选择的值是一个对象。</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.cars = {
+			car01 : {brand:"ford",model:"mustang",color:"red"},
+			car02 : {brand:"fiat",model:"500",color:"white"},	
+			car03 : {brand:"volvo",model:"xc90",color:"black"}
+		}
+	});
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<p>
+		选择一辆车：
+	</p>
+	<select ng-model="selectedCar" ng-options="y.brand for (x,y) in cars">
+	</select>
+	<p>你选择的是：{{selectedCar.brand}}</p>
+	<p>型号为：{{selectedCar.model}}</p>
+	<p>颜色为：{{selectedCar.color}}</p>
+	<p>下列列表中的选项</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.cars = {
+			car01 : {brand:"ford",model:"mustang",color:"red"},
+			car02 : {brand:"fiat",model:"500",color:"white"},
+			car03 : {brand:"volvo",model:"xc90",color:"black"}
+		}
+	})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="customersCtrl"> 
+
+<table>
+  <tr ng-repeat="x in names">
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Country }}</td>
+  </tr>
+</table>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("json.php")
+    .success(function (response) {$scope.names = response.records;});
+});
+</script> -->
+
+
+<!-- <div ng-app="" ng-init="mySwitch=true">
+	<p>
+		<button ng-disabled="mySwitch">
+			点我！
+		</button>
+	</p>
+	<p>
+		<input type="checkbox" ng-model="mySwitch"/>
+		按钮
+	</p>
+	<p>
+		{{mySwitch}}
+	</p>
+</div> -->
+<!-- <div ng-app="">
+	<p ng-show="true">  
+		我是可见的
+	</p>
+	<p ng-show="false">
+		我是不可见的 
+	</p>
+</div> -->
+
+<!-- <div ng-app="" ng-init="hour=13">
+	<p ng-show="hour>10">我是可见的</p>
+</div> -->
+<!-- <div ng-app="">
+	<p ng-hide="true">我是不可见的</p>
+	<p ng-hide="false">我是可见的</p>
+</div> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<button ng-click="count = count + 1">
+		点我！
+	</button>
+	<p>{{ count }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count = 0;
+	})
+</script>
+ -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<button ng-click="count = count + 1">点我！</button>
+		<p>{{ count }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count = 0;
+	})
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<button ng-click="count = count + 1">
+		点我！
+	</button>
+	<p>{{ count }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count = 0;
+	})
+</script> -->
+
+<!-- <div ng-app = "myApp" ng-controller = "myCtrl">
+	<button ng-click="count = count + 1">
+	点我！	
+	</button>
+	<p>{{ count }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count = 0;
+	})
+</script> -->
+
+
+<!-- <div ng-app = "myApp" ng-controller = "myCtrl">
+	<button ng-click = "count = count + 1">
+		点我！
+	</button>
+	<p>{{ count }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count = 0;
+	})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<button ng-click="count=count + 1">点我！</button>
+	<p>{{ count }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count=0;
+	})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller = "myCtrl">
+	<button ng-click="count = count + 1">点我！</button>
+	<p>{{ count }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count = 0;
+	});
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<button ng-click="count = count + 1">点我！</button>
+	<p>{{ count }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count = 0;
+	})
+</script> -->
+<!-- <div ng-app = "myApp" ng-controller="myCtrl">
+	<button ng-click="count = count + 1">点我！</button>
+	<p>{{ count }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count = 0;
+	})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="personCtrl">
+	<button ng-click="toggle()">
+		隐藏/显示
+	</button>
+	<p ng-hide="myVar">
+		名：<input type="text" ng-model="firstName"><br>
+		姓：<input type="text" ng-model="lastName"><br><br>
+		姓名：{{firstName + " " + lastName}}
+	</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('personCtrl',function($scope){
+		$scope.firstName = "John";
+		$scope.lastName = "Doe";
+		$scope.myVar = false;
+		$scope.toggle = function(){
+			$scope.myVar = !$scope.myVar;
+		}
+	});
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="personCtrl">
+	<button ng-click="toggle()">
+		隐藏/显示
+	</button>
+	<p ng-hide="myVar">
+		名： <input type="text" ng-model="firstName"><br>
+		姓：<input type="text" ng-model="lastName"><br><br>
+		姓名：{{firstName + " " + lastName}}
+	</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('personCtrl',function($scope){
+		$scope.firstName = "John";
+		$scope.lastName = "Doe";
+		$scope.myVar = false;
+		$scope.toggle = function(){
+			$scope.myVar = !$scope.myVar;
+		}
+	})
+</script>
+ -->
+<!-- <div ng-app="myApp" ng-controller="personCtrl">
+	<button ng-click="toggle()">
+		隐藏/显示
+	</button>
+	<p ng-hide="myVar">
+		名：<input type="text" ng-model="firstName"><br/>
+		姓：<input type="text" ng-model="lastName"><br/>
+		<br/>
+		姓名：{{firstName + " " + lastName}}
+	</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('personCtrl',function($scope){
+		$scope.firstName = "John";
+		$scope.lastName = "Doe";
+		$scope.myVar = false;
+		$scope.toggle = function(){
+			$scope.myVar = !$scope.myVar;
+		}
+	})
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="personCtrl">
+	<button ng-click="toggle()">
+		隐藏/显示
+	</button>
+	<p ng-hide="myVar">
+		名：<input type="text" ng-model="firstName"><br/>
+		姓：<input type="text" ng-model="lastName"><br/>
+		<br/>
+		姓名：{{firstName + lastName}}
+	</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('personCtrl',function($scope){
+		$scope.firstName = "john";
+		$scope.lastName = "Dom";
+		$scope.myVar = false;
+		$scope.toggle = function(){
+			$scope.myVar = !$scope.myVar;
+		}
+	})
+</script>
+ -->
+
+<!-- <div ng-app = "myApp" ng-controller="personCtrl">
+	<button ng-click="toggle()">
+		隐藏/显示
+	</button>
+	<p ng-show="myVar">
+		名： <input type="text" name="" ng-model="person.firstName"><br/>
+		姓： <input type="text" name="" ng-model="person.lastName"><br/><br/>
+		姓名：{{person.firstName + person.lastName}}
+	</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('personCtrl',function($scope){
+		$scope.person = {
+			firstName:"John",
+			lastName:"Doe"
+		};
+		$scope.myVar = true;
+		$scope.toggle = function(){
+			$scope.myVar = !$scope.myVar;
+		}
+	})
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="personCtrl">
+	<button ng-click="toggle()">
+		隐藏/显示
+	</button>
+	<p ng-show="myVar">
+		名： <input type="text" ng-model="person.firstName">
+		<br/>
+		姓:  <input type="text" ng-model="person.lastName">
+		<br><br/>
+		姓名：{{person.firstName + " " + person.lastName}}
+	</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('personCtrl',function($scope){
+		$scope.person = {
+			firstName:"John",
+			lastName:"Doe"
+		};
+		$scope.myVar = true;
+		$scope.toggle= function(){
+			$scope.myVar = !$scope.myVar;
+		}
+
+	})
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="personCtrl">
+	<button ng-click="toggle()">
+		隐藏/显示
+	</button>
+	<p ng-show="myVar">
+		名：<input type="text" ng-model="person.firstName">
+		<br/>
+		姓：<input type="text" ng-model="person.lastName">
+		<br/><br/>
+		姓名：{{person.firstName + " " + person.lastName}}
+	</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('personCtrl',function($scope){
+		$scope.person={
+			firstName:"John",
+			lastName:"Doe"
+		};
+		$scope.myVar = true;
+		$scope.toggle=function(){
+			$scope.myVar = !$scope.myVar;
+		}
+	})
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="personCtrl">
+	<button ng-click="toggle()">
+		隐藏/显示
+	</button>
+	<p ng-show="myVar">
+		名：<input type="text" ng-model="person.firstName"><br/>
+		姓：<input type="text" ng-model="person.lastName"><br/><br>
+		姓名：{{person.firstName + " " + person.lastName}}
+	</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('personCtrl',function($scope){
+		$scope.person={
+			firstName:"John",
+			lastName:"Doe"
+		};
+		$scope.myVar = true;
+		$scope.toggle = function(){
+			$scope.myVar = !$scope.myVar;
+		}
+	})
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="personCtrl">
+	<button ng-click="toggle()">
+		隐藏/显示
+	</button>
+</div> -->
+<!-- 
+<div ng-app="myApp" ng-controller="myCtrl">
+	<button ng-click="count = count + 1">
+		点我！
+	</button>
+	<p>{{count}}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count = 0;
+	});
+</script> -->
+<!-- <div ng-app="" ng-controllers="myCtrl">
+	<button ng-click="count = count + 1">
+		点我！
+	</button>
+	<p>{{ count }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count = 0;
+	});
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<button ng-click="count = count + 1">
+		点我!
+	</button>
+	<p>{{ count }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count = 0;
+	});
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<button ng-click="count = count + 1">
+		点我！
+	</button>
+	<p>{{ count }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.count = 0;
+	});
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="personCtrl">
+	<button ng-click="toggle()">
+		隐藏/显示
+	</button>
+	<p ng-hide="myVar">
+		名： <input type="text" name="firstName" ng-model="firstName"><br/>
+		姓： <input type="text" name="lastName" ng-model="lastName"><br/><br/>
+		姓名：{{firstName + " " + lastName}}
+	</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('personCtrl',function($scope){
+		$scope.firstName = "John";
+		$scope.lastName = "Doe";
+		$scope.myVar = false;
+		$scope.toggle = function(){
+			$scope.myVar = !$scope.myVar;
+		}
+	});
+</script>
+ -->
+
+<!-- <div ng-app="myApp" ng-controller="personCtrl">
+	<button ng-click="toggle()">
+		隐藏/显示
+	</button>
+	<p ng-show="myVar">
+		名：<input type="text" ng-model="person.firstName"><br/>
+		姓：<input type="text" ng-model="person.lastName"><br/><br/>
+		姓名：{{person.firstName + " " + person.lastName}}
+	</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('personCtrl',function($scope){
+		$scope.person = {
+			firstName:"John",
+			lastName:"Doe"
+		};
+		$scope.myVar=true;
+		$scope.toggle=function(){
+			$scope.myVar=!$scope.myVar;
+		}
+	})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	{{firstName + " " + lastName}}
+</div> 
+
+<script type="text/javascript">
+	var app = angular.module("myApp",[]);
+	app.controller("myCtrl",function($scope){
+		$scope.firstName = "John";
+		$scope.lastName = "Doe";
+	});
+</script>
+ -->
+
+<!-- <div ng-app="myApp" runoob-directive>
+</div>
+<script type="text/javascript">
+	var app = angular.module("myApp",[]);
+	app.directive("runoobDirective",function(){
+		return {
+			template:"我在指令构建器中创建！"
+		}
+	})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	{{firstName + " " + lastName}}
+</div>
+<script type="text/javascript">
+	var app = angular.module("myApp",[]);
+	app.controller("myCtrl",function($scope){
+		$scope.firstName = "John";
+		$scope.lastName = "Doe";
+	});
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	{{firstName + " " + lastName}}
+</div>
+<script type="text/javascript">
+	var app = angular.module("myApp",[]);
+	app.controller("myCtrl",function($scope){
+		$scope.firstName = "John";
+		$scope.lastName = "Doe";
+	})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="formCtrl">
+	<form novalidate>
+		First Name :<br/>
+		<input type="text" ng-model="user.firstName"><br/>
+		Last Name:<br/>
+		<input type="text" ng-model="user.lastName"><br/>
+		<br><br/>
+		<button ng-click="reset()">RESET</button>
+	</form>
+	<p>form = {{user}}</p>
+	<p>master = {{master}}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('formCtrl',function($scope){
+		$scope.master = {firstName:"John",lastName:"Doe"};
+		$scope.reset = function(){
+			$scope.user = angular.copy($scope.master);
+		};
+		/*$scope.reset();*/
+	})
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="formCtrl">
+	<form novalidate>
+		First Name :<br/>
+		<input type="text" ng-model="user.firstName"><br/>
+		Last Name:<br/>
+		<input type="text" ng-model="user.lastName"><br/>
+		<br>
+		<button ng-click="reset()">RESET</button>	
+	</form>
+	<p>form = {{ user }}</p>
+	<p>master = {{ master }}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller("formCtrl",function($scope){
+		$scope.master={firstName:"John",lastName:"Doe"};
+		$scope.reset = function(){
+			$scope.user = angular.copy($scope.master);
+		};
+		/*$scope.reset();*/
+	})
+</script> -->
+	<!-- <h2>验证实例</h2>
+	<form ng-app="myApp" ng-controller="validateCtrl" name="myForm"
+	novalidate>
+		<p>
+			用户名：<br/>
+			<input type="text" name="user" ng-model="user" required>
+			<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+				<span ng-show="myForm.user.$error.required">
+					用户名是必须的。
+				</span>
+			</span>  
+		</p>
+		<p>邮箱：<br/>
+			<input type="email" name="email" ng-model="email" required>
+			<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+				<span ng-show="myForm.email.$error.required">邮箱是必须的</span>
+				<span ng-show="myForm.email.$error.email">
+					非法的邮箱地址
+				</span>
+			</span>
+		</p>
+	</form>
+	<script type="text/javascript">
+		var app = angular.module('myApp',[]);
+		app.controller('validateCtrl',function($scope){
+			$scope.user = "John Doe";
+			$scope.email = "John.doe@gmail.com";
+		})
+	</script> -->
+	<!-- <h2>验证实例</h2>
+	<form ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
+		<p>
+			用户名：<br/>
+			<input type="text" name="user" ng-model="user" required>
+			<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+				<span ng-show="myForm.user.$error.required">
+					用户名是必须的。
+				</span>
+			</span>
+		</p>
+		<p>
+			邮箱：<br/>
+			<input type="email" name="email" ng-model="email" required>
+			<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+				<span ng-show="myForm.email.$error.required">
+					邮箱是必须的
+				</span>
+				<span ng-show="myForm.email.$error.email">
+			
+		非法的邮箱地址     
+				</span>
+			</span>
+		</p>
+	</form> -->
+	<!-- 
+	<h2>
+		验证实例
+	</h2>
+	<form ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
+		<p>
+			用户名：<br/>
+			<input type="text" name="user" ng-model="user" required>
+			<span  style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+				<span ng-show="myForm.user.$error.required">用户名是必须的。</span>
+			</span> 
+		</p>
+			
+	</form> -->
+	<!-- <h2>
+		验证实例
+	</h2>
+	<form ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
+		<p>
+			用户名：<br/>
+			<input type="text" name="user" ng-model="user" required>
+			<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+				<span ng-show="myForm.user.$error.required">
+					用户名是必须的。
+				</span>
+			</span>
+		</p>
+		<p>
+			邮箱：<br/>
+			<input type="email" name="email" ng-model="email" required>
+			<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+				<span ng-show="myForm.email.$error.required">
+					邮箱是必须的
+				</span>
+				<span ng-show="myForm.email.$error.email">
+					非法的邮箱地址。
+				</span>
+			</span>
+		</p>
+		<p>
+			<input type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid || myForm.email.$dirty && myForm.email.$invalid" name="">
+		</p>
+	</form>
+	<script type="text/javascript">
+		var app = angular.module('myApp',[]);
+		app.controller('validateCtrl',function($scope){
+			$scope.user = "John Doe";
+			$scope.email = "John.doe@gmail.com";
+		})
+	</script> -->
+	<!-- <div ng-app="myApp" ng-controller="myCtrl">
+		<p>{{ x1 }}</p>
+		<p>{{ x2 }}</p>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.x1 = "JOHN";
+			$scope.x2 = angular.lowercase($scope.x1);
+		});
+	</script> -->
+
+	<!-- <div ng-app="myApp" ng-controller="myCtrl">
+		<p>{{ x1 }}</p>
+		<p>{{ x2 }}</p>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.x1 = "JOHN";
+			$scope.x2 = angular.lowercase($scope.x1);
+		});
+	</script> -->
+	<!-- <div ng-app="myApp" ng-controller="myCtrl">
+		<p>{{ x1 }}</p>
+		<p>{{ x2 }}</p>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.x1 = "JOHN";
+			$scope.x2 = angular.lowercase($scope.x1);
+		});
+	</script> -->
+	<!-- 
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<p>{{ x1 }}</p>
+		<p>{{ x2 }}</p>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.x1 = "JOHN";
+			$scope.x2 = angular.lowercase($scope.x1);
+		});
+	</script> -->
+	<!-- <div ng-app = "myApp" ng-controller="myCtrl">
+		<p>{{ x1 }}</p>
+		<p>{{ x2 }}</p>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.x1 = "JOHN";
+			$scope.x2 = angular.lowercase($scope.x1);
+		})
+	</script> -->
+	<!-- <div ng-app="myApp" ng-controller="myCtrl">
+		<p>{{ x1 }}</p>
+		<p>{{ x2 }}</p>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.x1 = "JOHN";
+			$scope.x2 = angular.lowercase($scope.x1);
+		});
+	</script>
+	 -->
+	<!-- <div ng-app="myApp" ng-controller="myCtrl">
+		<p>{{ x1 }}</p>
+		<p>{{ x2 }}</p>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.x1 = "John";
+			$scope.x2 = angular.uppercase($scope.x1);
+		});
+	</script> -->
+
+	<!-- <div ng-app="myApp" ng-controller="myCtrl">
+		<p>{{ x1 }}</p>
+		<p>{{ x2 }}</p>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.x1 = "JOHN";
+			$scope.x2 = angular.isString($scope.x1);
+		});
+	</script> -->
+	<!-- <div ng-app="myApp" ng-controller="myCtrl">
+		<p>{{ x1 }}</p>
+		<p>{{ x2 }}</p>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.x1 = "John";
+			$scope.x2 = angular.isString($scope.x1);
+		});
+	</script> -->
+	<!-- <div ng-app="myApp" ng-controller="myCtrl">
+		<p>{{ x1 }}</p>
+		<p>{{ x2 }}</p>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.x1 = "John";
+			$scope.x2 = angular.isNumber($scope.x1);
+		});
+	</script> -->
+	<body ng-app="myApp" ng-controller="userCtrl">
+		<div class="container">
+			<h3>Users</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>
+							编辑
+						</th>
+						<th>
+							名
+						</th>
+						<th>
+							姓
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="user in users">
+						<td>
+							<button class="btn" ng-click="editUser(user.id)">
+								<span class="glyphicon glyphicon-pencil"></span>编辑
+							</button>
+						</td>
+						<td>{{ user.fName }}</td>
+						<td>{{ user.lName }}</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			<button class="btn btn-success" ng-click="editUser('new')">
+				<span class="glyphicon glyphicon-user"></span>创建新用户
+			</button>
+			<hr>
+			<h3 ng-show="edit">创建新用户：</h3>
+			<h3 ng-hide="edit">编辑用户：</h3>
+
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">名:</label>
+					<div>
+						<input type="text" ng-model="fName" ng-disabled="!edit" placeholder="名">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">姓：</label>
+					<div class="col-sm-10">
+						<input type="text" ng-model="lName" ng-disabled="!edit" placeholder="姓">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">密码：</label>
+					<div class="col-sm-10">
+						<input type="password" ng-model="passw1" placeholder="密码">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2">重复密码：</label>
+					<div>
+						<input type="password" ng-model="passw2" placeholder="重复密码">
+					</div>
+				</div>
+			</form>
+
+			<hr>
+			<button class="btn btn-success" ng-disabled="error || incomplete">
+				<span class="glyphicon glyphicon-save"></span>修改
+			</button>
+		</div>
+		<script type="text/javascript" src="../js/myUser.js"></script>
+	</body>
+</html>                            
